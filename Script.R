@@ -1,4 +1,4 @@
-setwd("C://Users//ainar//OneDrive//Documentos//DATA SCIENCE//Ejer//Ejer")
+setwd("C://Users//ainar//OneDrive//Documentos//DATA SCIENCE//Ejer//Ejer//datos")
 library(readxl)
 library(lubridate)
 library(dplyr)
@@ -26,3 +26,8 @@ pedidos_distintos<- length(unique(datos$Invoice))
 diez<- datos %>% 
   group_by(Invoice) %>% 
   summarize(media = mean(n()))
+
+#Calcula el numero de productos por pedido
+pedi<- datos %>%
+  group_by(Invoice) %>% 
+  summarize(Total = sum(Price))
